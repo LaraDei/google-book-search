@@ -1,0 +1,13 @@
+.book {
+    text-align: center;
+}
+
+.group{
+    display: flex;
+    justify-content: center;
+}
+
+img {
+    margin: 25px;
+    
+}

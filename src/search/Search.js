@@ -6,34 +6,41 @@ export default class Search extends Component {
 
   formSubmitted = (e) => {
     e.preventDefault()
-    console.log(e.currentTarget.bookName)
-    this.props.handleSubmit(e.currentTarget.bookName.value)
+    console.log(e.currentTarget.search)
+    this.props.handleSubmit(e.currentTarget.search.value)
   }
 
   render() {
     return (
-      <div className="search">
+      <div className="search-bar">
         <form onSubmit={this.formSubmitted}>
-          <div className="header-2">
-            Search: <input type="text" name="bookName" id="bookName" />
+          <div className="search">
+            <label for="search">Search:</label>
+            <input type="text" name="search" id="search" />
             <input type="submit" value="Submit" /><br />
           </div>
-          <div className="header-3">
-            Print Type:
-        <select onChange={e => this.props.handlePrint(e.target.value)}>
-              <option value="all">All</option>
-              <option value="books">Books</option>
-              <option value="magazines">Magazines</option>
-            </select>
-          Book Type:
-        <select onChange={e => this.props.handleBook(e.target.value)}>
-              <option value="">No Filter</option>
-              <option value="partial">Partial</option>
-              <option value="full">Full</option>
-              <option value="free-ebooks">Free Ebooks</option>
-              <option value="paid-ebooks">Paid Ebooks</option>
-              <option value="ebooks">Ebooks</option>
-            </select>
+          <div className="filter">
+            <div className="one">
+            
+              <label for="print-type">Print Type:</label>
+              <select onChange={e => this.props.handlePrint(e.target.value)}>
+                <option value="all">All</option>
+                <option value="books">Books</option>
+                <option value="magazines">Magazines</option>
+              </select>
+            </div>
+            <div className="two">
+        
+              <label for="book-type">Book Type:</label>
+              <select onChange={e => this.props.handleBook(e.target.value)}>
+                <option value="">No Filter</option>
+                <option value="partial">Partial</option>
+                <option value="full">Full</option>
+                <option value="free-ebooks">Free Ebooks</option>
+                <option value="paid-ebooks">Paid Ebooks</option>
+                <option value="ebooks">Ebooks</option>
+              </select>
+            </div>
           </div>
         </form>
 
